@@ -26,7 +26,13 @@ wget --no-check-certificate -qO- 'https://moeclub.org/attachment/LinuxShell/ngin
 
 # ReInstall
 ```
-bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 9 -v 64 -a
+bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -a
+```
+
+# Linux Init
+```
+bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/LinuxInit.sh')
+
 ```
 
 # Install Win8.1
@@ -192,4 +198,10 @@ DEBIAN_FRONTEND=noninteractive apt install -y nvidia-driver nvidia-cuda-toolkit 
 # nvidia-smi
 # apt install -y "linux-headers-`uname -r`"
 # sudo dkms install -m `ls -1 /usr/src |grep "^nvidia" |sed 's/^nvidia-/nvidia\//'`
+```
+
+# ssh config
+```
+echo -ne "# chmod 600 ~/.ssh/id_rsa\n\nHost *\n  StrictHostKeyChecking no\n  UserKnownHostsFile /dev/null\n  IdentityFile ~/.ssh/id_rsa\n" > ~/.ssh/config
+
 ```
