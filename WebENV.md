@@ -205,3 +205,65 @@ DEBIAN_FRONTEND=noninteractive apt install -y nvidia-driver nvidia-cuda-toolkit 
 echo -ne "# chmod 600 ~/.ssh/id_rsa\n\nHost *\n  StrictHostKeyChecking no\n  UserKnownHostsFile /dev/null\n  IdentityFile ~/.ssh/id_rsa\n" > ~/.ssh/config
 
 ```
+
+# ssh keygen
+```
+ssh-keygen -t rsa -P "" -f ./id_rsa
+
+cat id_rsa.pub
+cat id_rsa
+
+```
+
+# OneDrive
+```
+https://[tenancy]-my.sharepoint.com/personal/[user]_[tenancy]_onmicrosoft_com/_layouts/15/download.aspx?share=[FileID]
+
+```
+
+# Login Root
+```
+PASSWORD='MoeClub.org'; echo $PASSWORD |sudo -S true; echo root:$PASSWORD |sudo chpasswd root; sudo apt update; sudo apt install -y openssh-server; sudo apt install -y sshpass; sudo sed -i 's/^.*PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config; sudo sed -i 's/^.*PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl enable sshd; sudo systemctl restart sshd; sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no root@localhost
+
+```
+
+# MySQL
+```
+# 创建用户(MoeClub)和密码(MoeClub.ORG)
+CREATE USER 'MoeClub'@'%' IDENTIFIED BY 'MoeClub.ORG';
+
+# 为用户(MoeClub)赋权访问数据库(DataBase)
+GRANT ALL ON DataBase.* TO 'MoeClub'@'%';
+
+# 刷新权限
+FLUSH privileges;
+
+# 删除用户(MoeClub)
+DROP USER 'MoeClub'@'%';
+
+```
+
+# tty
+```
+AWS: console=ttyS0,115200
+```
+
+# Google Chrome CRX
+```
+https://clients2.google.com/service/update2/crx?response=redirect&prod=chromiumcrx&prodversion=100&acceptformat=crx3&x=installsource%3Dondemand%26uc%26id%3D<插件ID>
+
+```
+
+# SQLite3
+```
+CREATE TABLE `Table1` AS SELECT * FROM `Table0` WHERE 1=0;
+
+INSERT INTO `Table1` SELECT DISTINCT * FROM `Table0`;
+
+INSERT INTO `Table1` (字段1,字段2,.......) SELECT 字段1,字段2,...... FROM `Table0`;
+
+DROP TABLE `Table0`;
+
+ALTER TABLE `Table1` RENAME TO `Table0`;
+
+```
